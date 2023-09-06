@@ -8,6 +8,7 @@ const getServerURL = (req, res) => {
 
 		res.send({ url: `http://${ip}:${port}` });
 	} catch (ex) {
+		console.log("Error al obtener ip del servidor: ", ex);
 		res.statusMessage = "Ocurrio un error al obtener la Ip del servidor.";
 		res.sendStatus(500);
 	}
