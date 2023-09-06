@@ -4,7 +4,6 @@ const port = require("./services/port");
 const SocketServer = require("./services/socketServer");
 const fs = require('fs');
 const { serverRouter } = require("./routes/server.route");
-const {spawn} = require('child_process');
 
 
 const app = express();
@@ -18,9 +17,6 @@ app.use(express.json());
 app.use(express.static(__dirname + "/public"));
 
 app.use("/server", serverRouter)
-
-/*Ejecutar python app para toma de screens */
-spawn('python', [__dirname + '/src/scripts/takeScreens.py']);
 
 app.get("/", (req, res) => {
     res.send(req.hostname)
