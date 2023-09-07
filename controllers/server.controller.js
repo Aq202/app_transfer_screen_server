@@ -1,10 +1,11 @@
 const os = require("os");
 const port = require("../services/port");
+const ip = require("../services/ip");
 
 const getServerURL = (req, res) => {
 	try {
-		const networkData = os.networkInterfaces()["Wi-Fi"].find(network => network.family === "IPv4");
-		const ip = networkData.address;
+		// const networkData = os.networkInterfaces()["Wi-Fi"].find(network => network.family === "IPv4");
+		// const ip = networkData.address;
 
 		res.send({ url: `http://${ip}:${port}` });
 	} catch (ex) {
